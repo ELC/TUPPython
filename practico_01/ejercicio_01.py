@@ -37,7 +37,7 @@ def maximo_ternario(a: float, b: float) -> float:
     """CHALLENGE OPCIONAL: Re-escribir la función utilizando el operador ternario
     Referencia: https://docs.python.org/3/reference/expressions.html#conditional-expressions
     """
-    return b if a > b else a
+    return a if a > b else b
 
 
 # NO MODIFICAR - INICIO
