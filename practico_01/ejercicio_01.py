@@ -1,7 +1,7 @@
 """Ejercicio 1: Bloque IF, operadores lógicos, función max y operador ternario"""
 
 
-def maximo(a: float, b: float) -> float:
+def maximo_basico(a: float, b: float) -> float:
     """Toma dos números y devuelve el mayor sin utilizar la función max"""
     if a > b:
         return a
@@ -9,8 +9,8 @@ def maximo(a: float, b: float) -> float:
 
 
 # NO MODIFICAR - INICIO
-assert maximo(10, 5) == 10
-assert maximo(9, 18) == 18
+assert maximo_basico(10, 5) == 10
+assert maximo_basico(9, 18) == 18
 # NO MODIFICAR - FIN
 
 
@@ -34,7 +34,7 @@ assert maximo_libreria(9, 18) == 18
 
 
 def maximo_ternario(a: float, b: float) -> float:
-    """CHALLENGE OPCIONAL: Re-escribir la función utilizando el operador ternario
+    """Re-escribir la función utilizando el operador ternario
     Referencia: https://docs.python.org/3/reference/expressions.html#conditional-expressions
     """
     return a if a > b else b
