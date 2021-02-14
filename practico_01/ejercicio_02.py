@@ -1,10 +1,12 @@
-"""Ejercicio 2: Comparaciones Encadenadas, Cantidad Arbitraria de Parámetros,
-introducción a la recursividad
+"""Comparaciones Encadenadas, Cantidad Arbitraria de Parámetros,
+introducción a la recursividad.
 """
 
 
 def maximo_encadenado(a: float, b: float, c: float) -> float:
-    """Devolver el máximo utilizando UNICAMENTE tres IFs y comparaciones encadenadas
+    """Toma 3 números y devuelve el máximo.
+
+    Restricción: Utilizar UNICAMENTE tres IFs y comparaciones encadenadas.
     Referencia: https://docs.python.org/3/reference/expressions.html#comparisons
     """
     if b < a > c:
@@ -26,7 +28,9 @@ assert maximo_encadenado(24, 9, 18) == 24
 
 
 def maximo_cuadruple(a: float, b: float, c: float, d: float) -> float:
-    """Modificar la función para que tome 4 parámetros, utilizar el built-in max"""
+    """Re-escribir para que tome 4 parámetros, utilizar la función max.
+
+    Referencia: https://docs.python.org/3/library/functions.html#max"""
     return max(a, b, c, d)
 
 
@@ -42,7 +46,7 @@ assert maximo_cuadruple(24, 9, 18, 30) == 30
 
 
 def maximo_arbitrario(*args) -> float:
-    """Modificar la función para que tome una cantidad arbitraria de parámetros
+    """Re-escribir para que tome una cantidad arbitraria de parámetros.
     Referencia: https://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists
     """
     return max(args)
@@ -60,7 +64,7 @@ assert maximo_arbitrario(24, 9, 18, 30) == 30
 
 
 def maximo_recursivo(*args) -> float:
-    """CHALLENGE OPCIONAL: Re-Escribir la función de forma recursiva."""
+    """Re-Escribir de forma recursiva."""
     primero, *resto = args
 
     if resto == []:

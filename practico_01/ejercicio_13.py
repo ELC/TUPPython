@@ -1,14 +1,13 @@
-# PARTE 1
-# Escribir una función que tome una lista de números, los eleve al cubo,
-# y devuelva la suma de los elementos pares
-
 from typing import Iterable
 
-# Escribir utilizando dos bucles for, uno para elevar al cubo y otro para
-# separar los pares
 
+def suma_cubo_pares_for(numeros: Iterable[int]) -> int:
+    """Toma una lista de números, los eleva al cubo, y devuelve la suma de
+    los elementos pares.
 
-def suma_cubo_pares(numeros: Iterable[int]) -> int:
+    Restricción: Utilizar dos bucles for, uno para elevar al cubo y otro para
+    separar los pares.
+    """
     cubos = []
     for numero in numeros:
         cubos.append(numero ** 3)
@@ -22,43 +21,45 @@ def suma_cubo_pares(numeros: Iterable[int]) -> int:
 
 
 # NO MODIFICAR - INICIO
-assert suma_cubo_pares([1, 2, 3, 4, 5, 6]) == 288
+assert suma_cubo_pares_for([1, 2, 3, 4, 5, 6]) == 288
 # NO MODIFICAR - FIN
 
 
-# Re-Escribir utilizando comprension de listas (debe resolverse en 1 línea)
-# y la función built-in sum
-
-# Referencia:
-# https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
-
-# Referencia: https://docs.python.org/3/library/functions.html#sum
+###############################################################################
 
 
-def suma_cubo_pares(numeros: Iterable[int]) -> int:
+def suma_cubo_pares_sum_list(numeros: Iterable[int]) -> int:
+    """Re-Escribir utilizando comprension de listas (debe resolverse en 1 línea)
+    y la función built-in sum.
+
+    Referencia: https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
+    Referencia: https://docs.python.org/3/library/functions.html#sum
+    """
     return sum([numero ** 3 for numero in numeros if numero ** 3 % 2 == 0])
 
 
 # NO MODIFICAR - INICIO
-assert suma_cubo_pares([1, 2, 3, 4, 5, 6]) == 288
+assert suma_cubo_pares_sum_list([1, 2, 3, 4, 5, 6]) == 288
 # NO MODIFICAR - FIN
 
 
-# Re-Escribir utilizando expresiones generadoras (debe resolverse en 1 línea)
-# y la función built-in sum. Nota: Sólo deberían cambiarse 2 caracteres de la
-# solución anterior
-# Referencia:
-# https://docs.python.org/3/reference/expressions.html#generator-expressions
+###############################################################################
 
 
-def suma_cubo_pares(numeros: Iterable[int]) -> int:
+def suma_cubo_pares_sum_gen(numeros: Iterable[int]) -> int:
+    """ Re-Escribir utilizando expresiones generadoras (debe resolverse en 1 línea)
+    y la función sum.
+    Referencia: https://docs.python.org/3/reference/expressions.html#generator-expressions
+    """
     return sum(numero ** 3 for numero in numeros if numero ** 3 % 2 == 0)
 
 
 # NO MODIFICAR - INICIO
-assert suma_cubo_pares([1, 2, 3, 4, 5, 6]) == 288
+assert suma_cubo_pares_sum_gen([1, 2, 3, 4, 5, 6]) == 288
 # NO MODIFICAR - FIN
 
+
+###############################################################################
 
 # PARTE 2
 # A continuación se introduce el concepto de Lambdas (Funciones anónimas),

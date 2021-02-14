@@ -1,8 +1,7 @@
-# Implementar la función es_primo(numero), que devuelva un booleano en base a
-# si numero es primo o no.
 
 
 def es_primo(numero: int) -> bool:
+    """Devuelve un booleano en base a si numero es primo o no."""
     if numero <= 1:
         return False
 

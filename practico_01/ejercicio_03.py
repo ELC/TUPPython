@@ -1,17 +1,17 @@
-"""Único return vs múltiples return"""
+"""Único return vs múltiples return."""
 
 from typing import Union
 
 
 def operacion_basica(a: float, b: float, multiplicar: bool) -> Union[float, str]:
-    """Implementar la función operacion_basica, donde:
-        - Si multiplicar es True: devolver la multiplicación entre a y b.
-        - Si multiplicar es False: devolver la division entre a y b.
-        - Si multiplicar es False y b es cero: devolver "Operación no válida".
+    """Toma dos números (a, b) y un booleano (multiplicar):
+        - Si multiplicar es True: devuelve la multiplicación entre a y b.
+        - Si multiplicar es False: devuelve la division entre a y b.
+        - Si multiplicar es False y b es cero: devuelve "Operación no válida".
 
     Restricciones:
-        - Utilizar un único return
-        - No utilizar AND ni OR
+        - Utilizar un único return.
+        - No utilizar AND ni OR.
     """
 
     if multiplicar:
@@ -40,7 +40,7 @@ assert operacion_basica(1, 0, False) == "Operación no válida"
 
 
 def operacion_multiple(a: float, b: float, multiplicar: bool) -> Union[float, str]:
-    """Re-Escribir utilizando tres returns"""
+    """Re-Escribir utilizando tres returns."""
 
     if multiplicar:
         return a * b

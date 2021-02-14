@@ -1,12 +1,10 @@
-# Implementar la función es_vocal, que reciba un carácter y # devuelva un
-# booleano en base a si letra es una vocal o no.
 
+def es_vocal_if(letra: str) -> bool:
+    """Toma carácter y devuelve un booleano en base a si letra es una vocal o no.
 
-# Escribir utilizando un if para cada posibilidad con la función lower()
-# Referencia: https://docs.python.org/3/library/stdtypes.html#string-methods
-
-
-def es_vocal(letra: str) -> bool:
+    Restricción: Utilizar un if para cada posibilidad con la función lower().
+    Referencia: https://docs.python.org/3/library/stdtypes.html#string-methods
+    """
     letra = letra.lower()
     if letra == "a":
         return True
@@ -22,39 +20,41 @@ def es_vocal(letra: str) -> bool:
 
 
 # NO MODIFICAR - INICIO
-assert es_vocal("a")
-assert not es_vocal("b")
-assert es_vocal("A")
+assert es_vocal_if("a")
+assert not es_vocal_if("b")
+assert es_vocal_if("A")
 # NO MODIFICAR - FIN
 
 
-# Re-escribir la función utilizando un sólo IF y el operador IN
-# Referencia:
-# https://docs.python.org/3/reference/expressions.html#membership-test-operations
+###############################################################################
 
 
-def es_vocal(letra: str) -> bool:
+def es_vocal_if_in(letra: str) -> bool:
+    """Re-escribir utilizando un sólo IF y el operador IN.
+    Referencia: https://docs.python.org/3/reference/expressions.html#membership-test-operations
+    """
     if letra.lower() in "aeiou":
         return True
     return False
 
 
 # NO MODIFICAR - INICIO
-assert es_vocal("a")
-assert not es_vocal("b")
-assert es_vocal("A")
+assert es_vocal_if_in("a")
+assert not es_vocal_if_in("b")
+assert es_vocal_if_in("A")
 # NO MODIFICAR - FIN
 
 
-# Re-escribir la función utilizando el operador IN pero sin utilizar IF
+###############################################################################
 
 
-def es_vocal(letra: str) -> bool:
+def es_vocal_in(letra: str) -> bool:
+    """Re-escribir utilizando el operador IN pero sin utilizar IF."""
     return letra.lower() in "aeiou"
 
 
 # NO MODIFICAR - INICIO
-assert es_vocal("a")
-assert not es_vocal("b")
-assert es_vocal("A")
+assert es_vocal_in("a")
+assert not es_vocal_in("b")
+assert es_vocal_in("A")
 # NO MODIFICAR - FIN

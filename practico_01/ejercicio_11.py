@@ -1,11 +1,9 @@
-# Implementar la función sumatoria(N) que Determine la suma de todos los
-# numeros de 1 a N.
 
+def sumatoria_basico(n: int) -> int:
+    """Devuelve la suma de los números de 1 a N.
 
-# Escribir utilizando un bucle for
-
-
-def sumatoria(n: int) -> int:
+    Restricción: Utilizar un bucle for.
+    """
     summation = 0
     for i in range(n + 1):
         summation = summation + i
@@ -13,48 +11,57 @@ def sumatoria(n: int) -> int:
 
 
 # NO MODIFICAR - INICIO
-assert sumatoria(1) == 1
-assert sumatoria(100) == 5050
+assert sumatoria_basico(1) == 1
+assert sumatoria_basico(100) == 5050
 # NO MODIFICAR - FIN
 
 
-# Re-Escribir utilizando sum y sin usar bucles
+###############################################################################
 
 
-def sumatoria(n: int) -> int:
+def sumatoria_sum(n: int) -> int:
+    """Re-Escribir utilizando la función sum y sin usar bucles.
+    Referencia: https://docs.python.org/3/library/functions.html#sum
+    """
     return sum(range(n + 1))
 
 
 # NO MODIFICAR - INICIO
-assert sumatoria(1) == 1
-assert sumatoria(100) == 5050
+assert sumatoria_sum(1) == 1
+assert sumatoria_sum(100) == 5050
 # NO MODIFICAR - FIN
 
 
-# CHALLENGE OPCIONAL: Re-escribir utilizando reduce
+###############################################################################
+
 
 from functools import reduce
 
 
-def sumatoria(n: int) -> int:
+def sumatoria_reduce(n: int) -> int:
+    """CHALLENGE OPCIONAL: Re-escribir utilizando reduce.
+    Referencia: https://docs.python.org/3/library/functools.html#functools.reduce
+    """
     return reduce(lambda x, y: x + y, range(n + 1), 0)
 
 
 # NO MODIFICAR - INICIO
-assert sumatoria(1) == 1
-assert sumatoria(100) == 5050
+assert sumatoria_reduce(1) == 1
+assert sumatoria_reduce(100) == 5050
 # NO MODIFICAR - FIN
 
 
-# CHALLENGE OPCIONAL: Re-Escribir utilizando suma de Gauss
-# Referencia: https://es.wikipedia.org/wiki/1_%2B_2_%2B_3_%2B_4_%2B_%E2%8B%AF
+###############################################################################
 
 
-def sumatoria(n: int) -> int:
+def sumatoria_gauss(n: int) -> int:
+    """CHALLENGE OPCIONAL: Re-Escribir utilizando suma de Gauss.
+    Referencia: https://es.wikipedia.org/wiki/1_%2B_2_%2B_3_%2B_4_%2B_%E2%8B%AF
+    """
     return n * (n + 1) // 2
 
 
 # NO MODIFICAR - INICIO
-assert sumatoria(1) == 1
-assert sumatoria(100) == 5050
+assert sumatoria_gauss(1) == 1
+assert sumatoria_gauss(100) == 5050
 # NO MODIFICAR - FIN
