@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  build:
+  basic-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,10 +21,68 @@ jobs:
           architecture: 'x64'
 
       - name: Install Dependencies
-        run: pip install pytest flake8 hypothesis
+        run: pip install pytest
 
-      - name: Run Tests
+      - name: Run Basic Tests
         run: pytest practico_01/practico_01_test.py
+
+
+  style-test:
+    needs: basic-test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+          architecture: 'x64'
+
+      - name: Install Flake8
+        run: pip install flake8
 
       - name: Test Style
         run: flake8 practico_01 --count --max-complexity=10 --max-line-length=130 --ignore=E266,F401,E402 --statistics --show-source
+
+
+  property-test:
+    needs: style-test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+          architecture: 'x64'
+
+      - name: Install Dependencies
+        run: pip install pytest hypothesis
+
+      - name: Run Property Tests
+        run: pytest practico_01/practico_01_property_test.py
+
+
+  challenge-test:
+    needs: property-test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+          architecture: 'x64'
+
+      - name: Install Dependencies
+        run: pip install pytest hypothesis
+
+      - name: Run Property Tests
+        continue-on-error: True
+        run: pytest practico_01/practico_01_challenge_test.py

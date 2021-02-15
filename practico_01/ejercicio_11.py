@@ -46,8 +46,9 @@ def sumatoria_reduce(n: int) -> int:
 
 
 # NO MODIFICAR - INICIO
-assert sumatoria_reduce(1) == 1
-assert sumatoria_reduce(100) == 5050
+if __name__ == "__main__":
+    assert sumatoria_reduce(1) == 1
+    assert sumatoria_reduce(100) == 5050
 # NO MODIFICAR - FIN
 
 
@@ -62,6 +63,7 @@ def sumatoria_gauss(n: int) -> int:
 
 
 # NO MODIFICAR - INICIO
-assert sumatoria_gauss(1) == 1
-assert sumatoria_gauss(100) == 5050
+if __name__ == "__main__":
+    assert sumatoria_gauss(1) == 1
+    assert sumatoria_gauss(100) == 5050
 # NO MODIFICAR - FIN

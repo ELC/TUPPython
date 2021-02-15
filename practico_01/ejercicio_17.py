@@ -1,16 +1,17 @@
-# Python permite funciones de orden superior, es decir, funciones que toman
-# otras funciones como parámetros. Esto posibilita una serie de patrones que
-# en otros lenguajes son difíciles de implementar y hace sencilla la
-# implementación de patrones como el decorador.
+"""Python permite funciones de orden superior, es decir, funciones que toman
+otras funciones como parámetros. Esto posibilita una serie de patrones que
+en otros lenguajes son difíciles de implementar y hace sencilla la
+implementación de patrones como el decorador.
 
 
-# Caso de uso 1: Medir el tiempo de las funciones
+Caso de uso 1: Medir el tiempo de las funciones
 
-# En Python existe la función perf_counter del módulo time de la biblioteca
-# estandar que permite medir el tiempo con cierta precisión entre invocaciones
+En Python existe la función perf_counter del módulo time de la biblioteca
+estandar que permite medir el tiempo con cierta precisión entre invocaciones.
 
-# Para poder utilizar un ejemplo real, se utilizará una función que calcula
-# y cuenta las permutaciones (una operación costosa computacionalmente)
+Para poder utilizar un ejemplo real, se utilizará una función que calcula
+y cuenta las permutaciones (una operación costosa computacionalmente).
+"""
 
 from itertools import permutations
 from time import perf_counter
@@ -29,28 +30,33 @@ def calcular_posibilidades(lista: Sequence[int], limite: int) -> int:
 n = 11
 limite = 10
 lista = list(range(n))
+
 start = perf_counter()
 result = calcular_posibilidades(lista, limite)
 elapsed = perf_counter() - start
+
 print(f"Tiempo: {elapsed:2.2f} segundos - Enfoque procedural")
 assert result == 28671512
 # NO MODIFICAR - FIN
 
 
-# Escribir una función que tome como parámetro una función y devuelva una dupla
-# conteniendo en su primer elemento el resultado de la función original  en su
-# segundo elemento el tiempo de ejecución.
+###############################################################################
 
-# La función no debe tomar parámetros y por lo tanto se recomienda usar el ya
-# aprendido partial
 
 from functools import partial
 
 
 def medir_tiempo(func: Callable[[], int]) -> Tuple[int, float]:
+    """Toma una función y devuelve una dupla conteniendo en su primer elemento
+    el resultado de la función y en su segundo elemento el tiempo de ejecución.
+
+    Restricción: La función no debe tomar parámetros y por lo tanto se
+    recomienda usar partial.
+    """
     start = perf_counter()
     result = func()
     elapsed = perf_counter() - start
+
     return result, elapsed
 
 
@@ -61,12 +67,14 @@ assert result == 28671512
 # NO MODIFICAR - FIN
 
 
-# Re-Escribir la función utilizando closures de forma tal que la función no
-# se requiera utilizar partial. En este caso se debe devolver una función que
-# devuelva la tupla y tome una cantidad arbitraria de parámetros
+###############################################################################
 
 
 def medir_tiempo(func: Callable[[Sequence[int], int], int]) -> Callable[[Sequence[int], int], Tuple[int, float]]:
+    """Re-Escribir utilizando closures de forma tal que la función no requiera
+    partial. En este caso se debe devolver una función que devuelva la tupla y
+    tome una cantidad arbitraria de parámetros.
+    """
     def helper(*args, **kwargs) -> Tuple[int, float]:
         start = perf_counter()
         result = func(*args, **kwargs)
@@ -84,12 +92,20 @@ assert result == 28671512
 # NO MODIFICAR - FIN
 
 
-# La función anterior cumple con las condiciones necesarias para ser utilizada
-# como decorador en Python. Utilizar la sintaxis especial de decoradores (el @)
-# y re-definir la función calcular_posibilidades con esta nueva sintaxis.
-# Referencia: https://docs.python.org/3/glossary.html#term-decorator
+###############################################################################
 
 
+"""La función anterior cumple con las condiciones necesarias para ser utilizada
+como decorador en Python. Utilizar la sintaxis especial de decoradores (el @)
+y re-definir la función calcular_posibilidades con esta nueva sintaxis.
+
+Referencia: https://docs.python.org/3/glossary.html#term-decorator
+
+Este es un ejemplo y no hay que escribir código.
+"""
+
+
+# NO MODIFICAR - INICIO
 @medir_tiempo
 def calcular_posibilidades(lista: Sequence[int], limite: int) -> int:
     count = 0
@@ -99,26 +115,30 @@ def calcular_posibilidades(lista: Sequence[int], limite: int) -> int:
     return count
 
 
-# NO MODIFICAR - INICIO
 result, elapsed = calcular_posibilidades(lista, limite)
 print(f"Tiempo: {elapsed:2.2f} segundos - Decorador con sintaxis especial")
 assert result == 28671512
 # NO MODIFICAR - FIN
 
 
-# Una caso real de este patrón es para guardar en una memoria cache auxiliar
-# resultados de funciones que son muy costosas computacionalmente. A este
-# patrón se lo suele denominar memoized
+###############################################################################
 
-# Escribir una función memoized y utilizarla como decorador junto con medir_
-# tiempo para la función calcular posibilidades. Prestar atención a los tiempo
-# de ejecución
+
+"""Un caso real de este patrón es guardar en una memoria cache auxiliar
+resultados de funciones que son muy costosas computacionalmente. A este
+patrón se lo suele denominar memoized
+"""
 
 
 def memoized(func):
+    """Escribir una función memoized y utilizarla como decorador junto con medir_
+    tiempo para la función calcular posibilidades. Prestar atención a los tiempo
+    de ejecución
+    """
     memo = {}
 
     def helper(*args):
+        nonlocal memo
         if str(args) not in memo:
             memo[str(args)] = func(*args)
         return memo[str(args)]
@@ -153,19 +173,20 @@ assert result == 28671512
 # NO MODIFICAR - FIN
 
 
-# CHALLENGE OPCIONAL: Esta es otra ocasión donde las funciones recursivas
-# tienen ventajas adicionales # ya que al utilizar el patrón memoized, las
-# funciones recursivas permiten ejecuciones más rápidas para las llamadas
-# sucesivas.
+###############################################################################
 
 
-# Escribir una versión recursiva de calcular_posibilidades que utilice la misma
-# firma y devuelva también la cantidad de permutaciones
+"""CHALLENGE OPCIONAL: Esta es otra ocasión donde las funciones recursivas
+tienen ventajas adicionales  ya que al utilizar el patrón memoized, las
+funciones recursivas permiten ejecuciones más rápidas para las llamadas
+sucesivas.
+"""
 
 
 @medir_tiempo
 @memoized
 def calcular_posibilidades_recursiva(lista: Sequence[int], limite: int) -> int:
+    """Re-Escribir de manera recursiva"""
     if limite == 0:
         return 0
 
@@ -175,53 +196,54 @@ def calcular_posibilidades_recursiva(lista: Sequence[int], limite: int) -> int:
 
 
 # NO MODIFICAR - INICIO
-print()
+if __name__ == "__main__":
+    print()
 
-result, elapsed = calcular_posibilidades_recursiva(lista, limite)
-print(f"Tiempo: {elapsed:2.2f} segundos - Recursiva Memoized - 1ra Ejecución")
-assert result == 28671512
+    result, elapsed = calcular_posibilidades_recursiva(lista, limite)
+    print(f"Tiempo: {elapsed:2.2f} segundos - Recursiva Memoized - 1ra Ejecución")
+    assert result == 28671512
 
-result, elapsed = calcular_posibilidades_recursiva(lista, limite)
-print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - 2da Ejecución")
-assert result == 28671512
+    result, elapsed = calcular_posibilidades_recursiva(lista, limite)
+    print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - 2da Ejecución")
+    assert result == 28671512
 
-print()
+    print()
 
-result, elapsed = calcular_posibilidades(lista, limite + 1)
-print(f"Tiempo: {elapsed:2.2f} segundos - Bucles Memoized - Parametro + 1")
-assert result == 68588312
+    result, elapsed = calcular_posibilidades(lista, limite + 1)
+    print(f"Tiempo: {elapsed:2.2f} segundos - Bucles Memoized - Parametro + 1")
+    assert result == 68588312
 
-result, elapsed = calcular_posibilidades_recursiva(lista, limite + 1)
-print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro + 1")
-assert result == 68588312
+    result, elapsed = calcular_posibilidades_recursiva(lista, limite + 1)
+    print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro + 1")
+    assert result == 68588312
 
-print()
+    print()
 
-result, elapsed = calcular_posibilidades(lista, limite + 2)
-print(f"Tiempo: {elapsed:2.2f} segundos - Bucles Memoized - Parametro + 2")
-assert result == 108505112
+    result, elapsed = calcular_posibilidades(lista, limite + 2)
+    print(f"Tiempo: {elapsed:2.2f} segundos - Bucles Memoized - Parametro + 2")
+    assert result == 108505112
 
-result, elapsed = calcular_posibilidades_recursiva(lista, limite + 2)
-print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro + 2")
-assert result == 108505112
+    result, elapsed = calcular_posibilidades_recursiva(lista, limite + 2)
+    print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro + 2")
+    assert result == 108505112
 
-print()
+    print()
 
-result, elapsed = calcular_posibilidades(lista, limite - 1)
-print(f"Tiempo: {elapsed:2.2f} segundos - Bucles Memoized - Parametro - 1")
-assert result == 8713112
+    result, elapsed = calcular_posibilidades(lista, limite - 1)
+    print(f"Tiempo: {elapsed:2.2f} segundos - Bucles Memoized - Parametro - 1")
+    assert result == 8713112
 
-result, elapsed = calcular_posibilidades_recursiva(lista, limite - 1)
-print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro - 1")
-assert result == 8713112
+    result, elapsed = calcular_posibilidades_recursiva(lista, limite - 1)
+    print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro - 1")
+    assert result == 8713112
 
-print()
+    print()
 
-result, elapsed = calcular_posibilidades(lista, limite - 2)
-print(f"Tiempo: {elapsed:2.2f} segundos - Bucles Memoized - Parametro - 2")
-assert result == 2060312
+    result, elapsed = calcular_posibilidades(lista, limite - 2)
+    print(f"Tiempo: {elapsed:2.2f} segundos - Bucles Memoized - Parametro - 2")
+    assert result == 2060312
 
-result, elapsed = calcular_posibilidades_recursiva(lista, limite - 2)
-print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro - 2")
-assert result == 2060312
+    result, elapsed = calcular_posibilidades_recursiva(lista, limite - 2)
+    print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro - 2")
+    assert result == 2060312
 # NO MODIFICAR - FIN
