@@ -3,17 +3,16 @@ name: Práctico 01
 on:
   push:
     branches: "**1**"
-  
-  pull_request:
-    branches: "**1**"
 
   workflow_dispatch:
 
 jobs:
 
   basic-test:
-    runs-on: ubuntu-latest
+    name: Test Básicos
 
+    runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/checkout@v2
 
@@ -32,6 +31,8 @@ jobs:
 
   style-test:
     needs: basic-test
+    name: Verificación de Estilo (Flake8)
+
     runs-on: ubuntu-latest
 
     steps:
@@ -52,6 +53,8 @@ jobs:
 
   property-test:
     needs: style-test
+    name: Test Basados en Propiedades
+
     runs-on: ubuntu-latest
 
     steps:
@@ -72,6 +75,8 @@ jobs:
 
   challenge-test:
     needs: property-test
+    name: Test para Challenges
+
     runs-on: ubuntu-latest
 
     steps:
@@ -86,6 +91,6 @@ jobs:
       - name: Install Dependencies
         run: pip install pytest hypothesis
 
-      - name: Run Property Tests
+      - name: Run Challenge Tests
         continue-on-error: True
         run: pytest practico_01/practico_01_challenge_test.py
