@@ -1,15 +1,15 @@
-# En este archivo se debe importar el archivo:
-# - ./controller.py
-# - ../util.py as util
-# - ../data/database.py as database
-# - ../tests/test_config.py as test_config
-# - ../tests/load_tests/ddos_simulation.py as ddos_simulation
-# - ../../main.py as main
+"""En este archivo se debe importar el archivo:
+- ./controller.py
+- ../util.py as util
+- ../data/database.py as database
+- ../tests/test_config.py as test_config
+- ../tests/load_tests/ddos_simulation.py as ddos_simulation
+- ../../main.py as main
 
-# Los imports deben hacerse de forma tal que funcionen con el siguiente
-# comando (estando parados dentro de la carpeta practico_01b):
-# $PATH$/practico_01b> python -m source.controller.ejercicio_03
-
+Los imports deben hacerse de forma tal que funcionen con el siguiente
+comando (estando parados dentro de la carpeta practico_02):
+$PATH$/practico_02> python -m source.controller.ejercicio_03
+"""
 
 import main
 import source.util as util
