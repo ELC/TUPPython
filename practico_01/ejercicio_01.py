@@ -1,4 +1,4 @@
-"""Ejercicio 1: Bloque IF, operadores lógicos, función max y operador ternario."""
+"""Bloque IF, operadores lógicos, función max y operador ternario."""
 
 
 def maximo_basico(a: float, b: float) -> float:

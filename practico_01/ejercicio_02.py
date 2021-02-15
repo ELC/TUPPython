@@ -1,6 +1,4 @@
-"""Comparaciones Encadenadas, Cantidad Arbitraria de Parámetros,
-introducción a la recursividad.
-"""
+"""Comparaciones Encadenadas, Cantidad Arbitraria de Parámetros, Recursividad."""
 
 
 def maximo_encadenado(a: float, b: float, c: float) -> float:

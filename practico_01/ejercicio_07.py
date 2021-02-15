@@ -1,3 +1,5 @@
+"""Slicing."""
+
 
 def es_palindromo(palabra: str) -> bool:
     """Toma un string y devuelve un booleano en base a si se lee igual al

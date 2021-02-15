@@ -27,6 +27,10 @@ def test_asserts_ejercicio_07():
     import ejercicio_07
 
 
+def test_asserts_ejercicio_08():
+    import ejercicio_08
+
+
 def test_asserts_ejercicio_09():
     import ejercicio_09
 
@@ -53,11 +57,3 @@ def test_asserts_ejercicio_14():
 
 def test_asserts_ejercicio_15():
     import ejercicio_15
-
-
-def test_asserts_ejercicio_16():
-    import ejercicio_16
-
-
-def test_asserts_ejercicio_17():
-    import ejercicio_17

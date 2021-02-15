@@ -17,8 +17,8 @@ def test_asserts_ejercicio_06():
     assert numeros_al_final_recursivo([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]
 
 
-def test_asserts_ejercicio_11():
-    from ejercicio_11 import sumatoria_reduce, sumatoria_gauss
+def test_asserts_ejercicio_09():
+    from ejercicio_09 import sumatoria_reduce, sumatoria_gauss
 
     assert sumatoria_reduce(1) == 1
     assert sumatoria_reduce(100) == 5050
@@ -27,8 +27,8 @@ def test_asserts_ejercicio_11():
     assert sumatoria_gauss(100) == 5050
 
 
-def test_asserts_ejercicio_15():
-    from ejercicio_15 import generar_pares_generator_send, generar_pares_delegados
+def test_asserts_ejercicio_13():
+    from ejercicio_13 import generar_pares_generator_send, generar_pares_delegados
     generador_pares = generar_pares_generator_send()
     assert next(generador_pares) == 0
     assert next(generador_pares) == 2
@@ -44,8 +44,8 @@ def test_asserts_ejercicio_15():
     assert next(generador_pares) == 4
 
 
-def test_asserts_ejercicio_17():
-    from ejercicio_17 import calcular_posibilidades_recursiva, calcular_posibilidades
+def test_asserts_ejercicio_15():
+    from ejercicio_15 import calcular_posibilidades_recursiva, calcular_posibilidades
 
     n = 11
     limite = 10

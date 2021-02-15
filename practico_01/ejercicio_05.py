@@ -1,3 +1,5 @@
+"""Bucle FOR y Reduce."""
+
 from typing import Iterable
 
 

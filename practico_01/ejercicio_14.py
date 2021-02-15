@@ -1,136 +1,42 @@
-""" Se tiene un programa que lee diferentes listas de una tabla en una base de
-datos y se quieren combinar estas listas para que luego puedan crearse
-los objetos de la capa de negocio.
+"""Apply, Partial
+
+En múltiples librerías se estila tener una función llamada apply que aplica
+una función a todos los elementos de un conjunto de datos, puede ser una
+tabla en una base de datos, una columna en un DataFrame o una fila en un
+arreglo multidimensional. El problema suele estar en que esta función apply
+sólo admite funciones de ún parámetro. Para poder superar esta dificultad,
+debe hacerse uso de la función partial.
 """
 
-
-from typing import Any, List, Tuple
-
-nombre_articulos = ["ventana", "lámpara", "shampoo"]
-precio_articulos = [100.48, 16.42, 5.20]
+from functools import partial
+from typing import Callable, Iterable
 
 
-def combinar_basico(nombres: List[str], precios: List[float]) -> Tuple[Any]:
-    """Toma dos listas y devuelve una tupla de duplas con los componentes de
-    las listas.
-
-    Restricción: Resolver utilizando un bucle for.
-    """
-    articulos = []
-
-    for i in range(len(nombres)):
-        articulo = (nombres[i], precios[i])
-        articulos.append(articulo)
-
-    return tuple(articulos)
+def apply(lista: Iterable[int], func: Callable[[int], bool]) -> Iterable[bool]:
+    """Toma una lista y una función que toma un parámetro y devuelve una lista
+    con la función aplicada a todos los elementos."""
+    return [func(elem) for elem in lista]
 
 
 # NO MODIFICAR - INICIO
-respuesta = (
-    ("ventana", 100.48),
-    ("lámpara", 16.42),
-    ("shampoo", 5.2),
-)
-
-assert combinar_basico(nombre_articulos, precio_articulos) == respuesta
+def esta_entre_valores(x: int, min_: float, max_: float) -> bool:
+    return min_ < x < max_
 # NO MODIFICAR - FIN
 
 
 ###############################################################################
 
 
-id_articulos = [6852, 1459, 3578]
+"""Utilizar partial para que pueda pasarse como parámetro a la función apply
+Referencia: https://docs.python.org/3/library/functools.html#functools.partial
+"""
 
-
-def combinar_enumerate(nombres: List[str], precios: List[float], ids: List[int]) -> Tuple[Any]:
-    """Re-Escribir utilizando enumerate y agregando un nuevo componente.
-    Referencia: https://docs.python.org/3/library/functions.html#enumerate
-    """
-    articulos = []
-
-    for i, nombre in enumerate(nombres):
-        articulo = (nombre, precios[i], ids[i])
-        articulos.append(articulo)
-
-    return tuple(articulos)
-
+lista = [3, 4, 5, 6, 7, 8]
+min_ = 4
+max_ = 7
+nueva_funcion = partial(esta_entre_valores, min_=min_, max_=max_)
 
 # NO MODIFICAR - INICIO
-respuesta = (
-    ("ventana", 100.48, 6852),
-    ("lámpara", 16.42, 1459),
-    ("shampoo", 5.2, 3578),
-)
-
-assert combinar_enumerate(nombre_articulos, precio_articulos, id_articulos) == respuesta
-# NO MODIFICAR - FIN
-
-
-###############################################################################
-
-
-id_articulos = [6852, 1459, 3578]
-
-
-def combinar_zip(nombres: List[str], precios: List[float], ids: List[int]) -> Tuple[Any]:
-    """Re-Escribir utilizando zip.
-    Referencia: https://docs.python.org/3/library/functions.html#zip
-    """
-    articulos = []
-
-    for nombre, precio, id_ in zip(nombres, precios, ids):
-        articulo = (nombre, precio, id_)
-        articulos.append(articulo)
-
-    return tuple(articulos)
-
-
-# NO MODIFICAR - INICIO
-respuesta = (
-    ("ventana", 100.48, 6852),
-    ("lámpara", 16.42, 1459),
-    ("shampoo", 5.2, 3578),
-)
-
-assert combinar_zip(nombre_articulos, precio_articulos, id_articulos) == respuesta
-# NO MODIFICAR - FIN
-
-
-###############################################################################
-
-
-id_articulos = [6852, 1459, 3578]
-categoria_articulos = ["hogar", "libreria", "perfumeria"]
-importado_articulos = [True, False, True]
-
-
-def combinar_zip_args(*args) -> Tuple[Any]:
-    """Re-Escribir utilizando zip y una cantidad arbitraria de componentes.
-    Referencia: https://docs.python.org/3/tutorial/controlflow.html#unpacking-argument-lists
-    """
-
-    articulos = []
-
-    for articulo in zip(*args):
-        articulos.append(articulo)
-
-    return tuple(articulos)
-
-
-# NO MODIFICAR - INICIO
-respuesta = (
-    ("ventana", 100.48, 6852, "hogar", True),
-    ("lámpara", 16.42, 1459, "libreria", False),
-    ("shampoo", 5.2, 3578, "perfumeria", True),
-)
-
-componentes = [
-    nombre_articulos,
-    precio_articulos,
-    id_articulos,
-    categoria_articulos,
-    importado_articulos,
-]
-
-assert combinar_zip_args(*componentes) == respuesta
+lista = [3, 4, 5, 6, 7, 8]
+assert [False, False, True, True, False, False] == apply(lista, nueva_funcion)
 # NO MODIFICAR - FIN
