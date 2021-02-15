@@ -1,98 +1,113 @@
-# PARTE 1
-# Escribir una función que tome una lista de números, los eleve al cubo,
-# y devuelva la suma de los elementos pares
+"""Clousures, Generadores, Generadores Delegados
 
-from typing import Iterable
+Esta guia muestra uno de los patrones avanzados de programación para evitar
+el uso de variables globales. El método descripto se llama closure y consiste
+en vincular una función con datos que persistan luego de la ejecución, sin
+recurrir a variables globales. Esto se hace mediante la declaración de una
+función dentro de otra y permite comportamiento que sería imposible lograr de
+otra manera.
+"""
 
-# Escribir utilizando dos bucles for, uno para elevar al cubo y otro para
-# separar los pares
+
+from typing import Iterator, Callable
 
 
-def suma_cubo_pares(numeros: Iterable[int]) -> int:
-    cubos = []
-    for numero in numeros:
-        cubos.append(numero ** 3)
+def generar_pares_clousure(initial: int = 0) -> Callable[[], int]:
+    """Toma un número inicial y devuelve una función que cada vez que es
+    invocada devuelve el número par siguiente al devuelto la última vez que
+    fue invocada.
 
-    suma_pares = 0
-    for numero in cubos:
-        if numero % 2 == 0:
-            suma_pares += numero
+    Restricciones:
+        - Usar closures
+        - Usar el modificador nonlocal
+    """
+    next_number = initial - 2
 
-    return suma_pares
+    def helper():
+        nonlocal next_number
+        next_number += 2
+        return next_number
+
+    return helper
 
 
 # NO MODIFICAR - INICIO
-assert suma_cubo_pares([1, 2, 3, 4, 5, 6]) == 288
+generador_pares = generar_pares_clousure(0)
+assert generador_pares() == 0
+assert generador_pares() == 2
+assert generador_pares() == 4
 # NO MODIFICAR - FIN
 
 
-# Re-Escribir utilizando comprension de listas (debe resolverse en 1 línea)
-# y la función built-in sum
-
-# Referencia:
-# https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
-
-# Referencia: https://docs.python.org/3/library/functions.html#sum
+###############################################################################
 
 
-def suma_cubo_pares(numeros: Iterable[int]) -> int:
-    return sum([numero ** 3 for numero in numeros if numero ** 3 % 2 == 0])
+"""Este tipo de comportamiento es conocido com semi-corutina, las semi-corutinas
+en Python son llamadas funciones generadoras y se caracterizan por utilizar el
+yield en lugar del return.
+"""
+
+
+def generar_pares_generator(initial: int = 0) -> Iterator[int]:
+    """Re-Escribir utilizando Generadores
+    Referencia: https://docs.python.org/3/howto/functional.html?highlight=generator#generators
+    """
+    last_number = initial
+    yield last_number
+
+    while True:
+        last_number += 2
+        yield last_number
 
 
 # NO MODIFICAR - INICIO
-assert suma_cubo_pares([1, 2, 3, 4, 5, 6]) == 288
+generador_pares = generar_pares_generator()
+assert next(generador_pares) == 0
+assert next(generador_pares) == 2
+assert next(generador_pares) == 4
 # NO MODIFICAR - FIN
 
 
-# Re-Escribir utilizando expresiones generadoras (debe resolverse en 1 línea)
-# y la función built-in sum. Nota: Sólo deberían cambiarse 2 caracteres de la
-# solución anterior
-# Referencia:
-# https://docs.python.org/3/reference/expressions.html#generator-expressions
+###############################################################################
 
 
-def suma_cubo_pares(numeros: Iterable[int]) -> int:
-    return sum(numero ** 3 for numero in numeros if numero ** 3 % 2 == 0)
+def generar_pares_generator_send(initial: int = 0) -> Iterator[int]:
+    """CHALLENGE OPCIONAL: Re-Escribir utilizando send para saltear numeros"""
+    last_number = initial
+    yield last_number
+
+    while True:
+        last_number += 2
+        aux = yield last_number
+        if aux:
+            last_number = aux - 2
 
 
 # NO MODIFICAR - INICIO
-assert suma_cubo_pares([1, 2, 3, 4, 5, 6]) == 288
+if __name__ == "__main__":
+    generador_pares = generar_pares_generator_send()
+    assert next(generador_pares) == 0
+    assert next(generador_pares) == 2
+    assert next(generador_pares) == 4
+    assert generador_pares.send(10) == 10
+    assert next(generador_pares) == 12
+    assert next(generador_pares) == 14
+    assert next(generador_pares) == 16
 # NO MODIFICAR - FIN
 
 
-# PARTE 2
-# A continuación se introduce el concepto de Lambdas (Funciones anónimas),
-# Escribir las funciones lambdas que corresponda en cada línea
-# Referencia: https://docs.python.org/3/reference/expressions.html#lambda
-
-numeros = [1, 2, 3, 4, 5, 6]
+###############################################################################
 
 
-# Escribir una función lambda que eleve los elementos al cubo
+def generar_pares_delegados(initial: int = 0) -> Iterator[int]:
+    """CHALLENGE OPCIONAL: Re-Escribir utilizando Generadores delegados (yield from)"""
+    yield from generar_pares_generator(0)
 
-numeros_al_cubo = list(map(lambda x: x ** 3, numeros))
-
-
-# Escribir una función lambda que permita filtrar todos los elementos pares
-
-numeros_al_cubo_pares = list(filter(lambda x: x % 2 == 0, numeros_al_cubo))
-
-
-# Escribir una función Lambda que sume todos los elementos
-
-from functools import reduce
-
-suma_numeros_al_cubo_pares = reduce(lambda x, y: x + y, numeros_al_cubo_pares)
-
-
-# Escribir una función Lambda que permita ordenar los elementos de la numeros
-# en base a si son pares o impares
-
-numeros_ordenada = sorted(numeros, key=lambda x: x % 2 == 0)
 
 # NO MODIFICAR - INICIO
-assert numeros_al_cubo == [1, 8, 27, 64, 125, 216]
-assert numeros_al_cubo_pares == [8, 64, 216]
-assert suma_numeros_al_cubo_pares == 288
-assert numeros_ordenada == [1, 3, 5, 2, 4, 6]
+if __name__ == "__main__":
+    generador_pares = generar_pares_delegados()
+    assert next(generador_pares) == 0
+    assert next(generador_pares) == 2
+    assert next(generador_pares) == 4
 # NO MODIFICAR - FIN

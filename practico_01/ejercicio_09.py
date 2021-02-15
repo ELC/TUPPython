@@ -1,70 +1,71 @@
-# Implementar las funciones superposicion_x(), que tomen dos listas y
-# devuelva un booleano en base a si tienen al menos 1 elemento en común.
-
-from typing import Any, Iterable
+"""FOR, Sum, Reduce."""
 
 
-# Implementar utilizando bucles anidados.
+def sumatoria_basico(n: int) -> int:
+    """Devuelve la suma de los números de 1 a N.
 
-
-def superposicion(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
-    for elem in lista_1:
-        for elem_ in lista_2:
-            if elem == elem_:
-                return True
-    return False
+    Restricción: Utilizar un bucle for.
+    """
+    summation = 0
+    for i in range(n + 1):
+        summation = summation + i
+    return summation
 
 
 # NO MODIFICAR - INICIO
-test_list = [1, "hello", 35.20]
-assert superposicion(test_list, (2, "world", 35.20))
-assert not superposicion(test_list, (2, "world", 30.85))
+assert sumatoria_basico(1) == 1
+assert sumatoria_basico(100) == 5050
 # NO MODIFICAR - FIN
 
 
-# Re-Escribir utilizando un sólo bucle y el operador in
+###############################################################################
 
 
-def superposicion(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
-    for elem in lista_1:
-        if elem in lista_2:
-            return True
-    return False
+def sumatoria_sum(n: int) -> int:
+    """Re-Escribir utilizando la función sum y sin usar bucles.
+    Referencia: https://docs.python.org/3/library/functions.html#sum
+    """
+    return sum(range(n + 1))
 
 
 # NO MODIFICAR - INICIO
-test_list = [1, "hello", 35.20]
-assert superposicion(test_list, (2, "world", 35.20))
-assert not superposicion(test_list, (2, "world", 30.85))
+assert sumatoria_sum(1) == 1
+assert sumatoria_sum(100) == 5050
 # NO MODIFICAR - FIN
 
 
-# Re-Escribir utilizando sin bucles, el operador in y la funcion built-in any
-# Referencia: https://docs.python.org/3/library/functions.html#any
+###############################################################################
 
 
-def superposicion(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
-    return any(elem in lista_2 for elem in lista_1)
+from functools import reduce
+
+
+def sumatoria_reduce(n: int) -> int:
+    """CHALLENGE OPCIONAL: Re-escribir utilizando reduce.
+    Referencia: https://docs.python.org/3/library/functools.html#functools.reduce
+    """
+    return reduce(lambda x, y: x + y, range(n + 1), 0)
 
 
 # NO MODIFICAR - INICIO
-test_list = [1, "hello", 35.20]
-assert superposicion(test_list, (2, "world", 35.20))
-assert not superposicion(test_list, (2, "world", 30.85))
+if __name__ == "__main__":
+    assert sumatoria_reduce(1) == 1
+    assert sumatoria_reduce(100) == 5050
 # NO MODIFICAR - FIN
 
 
-# Re-Escribir utilizando conjuntos (sets)
-# Referencia:
-# https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset
+###############################################################################
 
 
-def superposicion(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
-    return len(set(lista_1) & set(lista_2)) != 0
+def sumatoria_gauss(n: int) -> int:
+    """CHALLENGE OPCIONAL: Re-Escribir utilizando suma de Gauss.
+    Referencia: https://es.wikipedia.org/wiki/1_%2B_2_%2B_3_%2B_4_%2B_%E2%8B%AF
+    """
+    return n * (n + 1) // 2
 
 
 # NO MODIFICAR - INICIO
-test_list = [1, "hello", 35.20]
-assert superposicion(test_list, (2, "world", 35.20))
-assert not superposicion(test_list, (2, "world", 30.85))
+if __name__ == "__main__":
+    assert sumatoria_gauss(1) == 1
+    assert sumatoria_gauss(100) == 5050
 # NO MODIFICAR - FIN

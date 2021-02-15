@@ -1,14 +1,21 @@
-# En este archivo se deben importar los módulos:
-# - main.py as main
-# - source/util.py as util
-# - source/controller/controller.py as controller
+"""Módulos
 
-# Los imports deben hacerse de forma tal que funcionen con TODAS las formas
-# posibles de invocación (estando parados en la carpeta practico_01b):
-# $PATH$/practico_01b> python ejercicio_01.py
-# $PATH$/practico_01b> python -m ejercicio_01
+Antes de realizar este TP, se recomienda ver el siguiente video:
+https://youtu.be/A47sszUdTsM
 
-# Referncia: https://docs.python.org/3/reference/import.html#the-import-system
+
+En este archivo se deben importar los módulos:
+- main.py as main
+- source/util.py as util
+- source/controller/controller.py as controller
+
+Los imports deben hacerse de forma tal que funcionen con TODAS las formas
+posibles de invocación (estando parados en la carpeta practico_02):
+$PATH$/practico_02> python ejercicio_01.py
+$PATH$/practico_02> python -m ejercicio_01
+
+Referencia: https://docs.python.org/3/reference/import.html#the-import-system
+"""
 
 import main
 import source.util as util

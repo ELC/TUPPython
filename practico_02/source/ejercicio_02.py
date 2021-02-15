@@ -1,14 +1,14 @@
-# En este archivo se debe importar el archivo:
-# - ./util.py as util
-# - ./data/database.py as database
-# - ../config/test_config.py as test_config
-# - ../config/db_config/migrations.py as migrations
-# - ../../main.py as main
+"""En este archivo se debe importar el archivo:
+- ./util.py as util
+- ./data/database.py as database
+- ../config/test_config.py as test_config
+- ../config/db_config/migrations.py as migrations
+- ../../main.py as main
 
-# Los imports deben hacerse de forma tal que funcionen con el siguiente
-# comando (estando parados dentro de la carpeta practico_01b):
-# $PATH$/practico_01b> python -m source.ejercicio_02
-
+Los imports deben hacerse de forma tal que funcionen con el siguiente
+comando (estando parados dentro de la carpeta practico_02):
+$PATH$/practico_02> python -m source.ejercicio_02
+"""
 
 import main
 import source.util as util
