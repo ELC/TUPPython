@@ -3,6 +3,9 @@ name: Práctico 01
 on:
   push:
     branches: "**1**"
+  
+  pull_request:
+    branches: "**1**"
 
   workflow_dispatch:
 
