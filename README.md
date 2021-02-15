@@ -6,6 +6,15 @@ Siempre que se introduzca un concepto nuevo, habrá un enlace a la documentació
 
 La referencia oficial será siempre la [documentación de Python](https://docs.python.org/es/3/), además, se recomienda el curso gratuito en español [Python Para Programadores](https://www.youtube.com/playlist?list=PL6L8P83xTjQ43lioPhb7liCeg5fe6ucaE), que contiene todos los contenidos necesarios para los trabajos prácticos.
 
+# Índice de Trabajo Prácticos
+
+- Práctico 1: Lenguaje Python - Sintaxis y Elementos básicos y avanzados
+- Práctico 2: Módulos e Imports
+- Práctico 3: Paradigma Orientado a Objetos
+- Práctico 4: Bases de Datos con ORM (Capa de Datos)
+- Práctico 5: Lógica de Negocio (Capa de Negocio)
+- Práctico 6: Presentación con API (Capa de Presentación)
+- [Trabajo Práctico Integrador (TPI): Desarrollo de una aplicación completa](TPI/README.md)
 
 # Aclaraciones
 
@@ -23,6 +32,16 @@ Los pasos para usar esta práctica son los siguientes:
 ## Paso 1: Fork
 
 Hacer un FORK del repositorio, en caso de trabajar en equipos, sólo uno de los integrantes deberá hacer el FORK.
+
+El nombre del FORK debe tener el el siguiente formato: "frro-python-YYYY-NN", donde
+
+- YYYY: año de cursado
+- NN: número de grupo
+
+Ejemplo:
+
+    frro-python-2021-03
+
 
 ![Paso 1](images/paso_01.png)
 
