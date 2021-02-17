@@ -33,7 +33,9 @@ Los pasos para usar esta práctica son los siguientes:
 
 Hacer un FORK del repositorio, en caso de trabajar en equipos, sólo uno de los integrantes deberá hacer el FORK.
 
-El nombre del FORK debe tener el el siguiente formato: "frro-python-YYYY-NN", donde
+![Paso 1](images/paso_01.png)
+
+Una vez hecho el FORK debemos cambiar su nombre, el cual debe tener el el siguiente formato: "frro-python-YYYY-NN", donde
 
 - YYYY: año de cursado
 - NN: número de grupo
@@ -42,9 +44,9 @@ Ejemplo:
 
     frro-python-2021-03
 
+Para cambiar el nombre de un repositorio iremos a "Settings" y luego "Rename"
 
-![Paso 1](images/paso_01.png)
-
+![Paso b1](images/paso_01_b.png)
 
 ## Paso 2: Añadir Colaboradores
 
