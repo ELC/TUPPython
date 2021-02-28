@@ -1,74 +1,68 @@
 """Lógica Simple y Cortocircuito"""
 
+"""
+Construir una expresión lógica que use TODAS las variables y cuyo resultado sea
+True
+"""
+
+esta_lloviendo = True
+estan_regando = True
+
+# COMPLETAR - INICIO
+piso_mojado = esta_lloviendo or estan_regando
+# COMPLETAR - FIN
+
+assert piso_mojado
+
 
 """
-Determinar el valor booleano de la siguiente sentencia:
-"""
+Construir una expresión lógica que use TODAS las variables y cuyo resultado sea
+True si el área es mayor a 5.
 
-sentencia_01 = False and True or True
-
-#Comentar la linea con el resultado incorrecto
-resultado_01 = True
-#resultado_01 = False
-
-assert sentencia_01 == resultado_01
-
-
-"""
-Determinar el valor booleano de la siguiente sentencia:
+Restricción: Usar NOT
 """
 
 lado_cuadrado = 5
-area_cuadrado = pow(lado_cuadrado - 3, 2)
+area_cuadrado = pow(lado_cuadrado, 2)
 
-sentencia_02 = not area_cuadrado < 5
+# COMPLETAR - INICIO
+area_mayor_a_cinco = not area_cuadrado < 5
+# COMPLETAR - FIN
 
-#Comentar la linea con el resultado incorrecto
-#resultado_02 = True
-resultado_02 = False
-
-assert sentencia_02 == resultado_02
+assert area_mayor_a_cinco  
 
 
 """
-Determinar el valor booleano de la siguiente sentencia:
+Construir una expresión lógica que use TODAS las variables y cuyo resultado sea
+True si el número 1 es divisible por 7 y al mismo tiempo el número 2 no lo es.
 """
 
-sentencia_03 = 49 % 7 == 0 and not 50 % 7 == 0
+numero_1 = 49
+numero_2 = 50
 
-#Comentar la linea con el resultado incorrecto
-resultado_03 = True
-#resultado_03 = False
+# COMPLETAR - INICIO
+resultado = numero_1 % 7 == 0 and not 50 % 7 == 0
+# COMPLETAR - FIN
 
-assert sentencia_03 == resultado_03
-
-
-"""
-Determinar el valor de la siguiente sentencia:
-"""
-
-sentencia_04 = False or not True or 80 or "90" or 100
-
-#Comentar las lineas con resultado incorrecto
-#resultado_04 = True
-#resultado_04 = False
-resultado_04 = 80
-#resultado_04 = "90"
-#resultado_04 = 100
-
-assert sentencia_04 == resultado_04
+assert resultado  
 
 
 """
-Determinar el valor de la siguiente sentencia:
+Construir una expresión lógica que use TODAS las sentencias y cuyo resultado sea
+el mismo valor de la sentencia 3.
+
+Restricción: sólo usar OR y NOT
 """
 
-sentencia_04 = 80 and False and "90" and 100
+sentencia_01 = False
+sentencia_02 = True
+sentencia_03 = 80
+sentencia_04 = "90"
+sentencia_05 = 100
 
-#Comentar las lineas con resultado incorrecto
-#resultado_04 = True
-resultado_04 = False
-#resultado_04 = 80
-#resultado_04 = "90"
+# COMPLETAR - INICIO
+resultado = sentencia_01 or not True or 80 or "90" and 100
+# COMPLETAR - FIN
 
-assert sentencia_04 == resultado_04
+assert resultado == 80  
+
