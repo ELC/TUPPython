@@ -1,5 +1,6 @@
 """Lógica Simple y Cortocircuito"""
 
+
 """
 Construir una expresión lógica que use TODAS las variables y cuyo resultado sea
 True
@@ -48,21 +49,20 @@ assert resultado
 
 
 """
-Construir una expresión lógica que use TODAS las sentencias y cuyo resultado sea
-el mismo valor de la sentencia 3.
+Construir una expresión lógica que use TODAS las variables y cuyo resultado sea
+el mismo valor de la variable 3.
 
-Restricción: sólo usar OR y NOT
+Restricción: sólo usar OR, NOT y el mecanismo de cortocircuito.
 """
 
-sentencia_01 = False
-sentencia_02 = True
-sentencia_03 = 80
-sentencia_04 = "90"
-sentencia_05 = 100
+variable_01 = False
+variable_02 = True
+variable_03 = 80
+variable_04 = "90"
+variable_05 = 100
 
 # COMPLETAR - INICIO
-resultado = sentencia_01 or not True or 80 or "90" and 100
+resultado = variable_01 or not variable_02 or variable_03 or variable_04 or variable_05
 # COMPLETAR - FIN
 
-assert resultado == 80  
-
+assert resultado == 80
