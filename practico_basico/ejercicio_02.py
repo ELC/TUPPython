@@ -3,14 +3,14 @@
 
 """
 Construir una expresión lógica que use TODAS las variables y cuyo resultado sea
-True
+True si al menos una de las variables es True.
 """
 
 esta_lloviendo = True
-estan_regando = True
+riego_activado = True
 
 # COMPLETAR - INICIO
-piso_mojado = esta_lloviendo or estan_regando
+piso_mojado = esta_lloviendo or riego_activado
 # COMPLETAR - FIN
 
 assert piso_mojado
@@ -20,7 +20,7 @@ assert piso_mojado
 Construir una expresión lógica que use TODAS las variables y cuyo resultado sea
 True si el área es mayor a 5.
 
-Restricción: Usar NOT
+Restricción: Usar NOT.
 """
 
 lado_cuadrado = 5
