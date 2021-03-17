@@ -1,5 +1,7 @@
-# Implementar la clase Rectangulo que contiene una base y una altura, y el
-# método area.
+"""
+Implementar la clase Rectangulo que contiene una base y una altura, y el
+método area.
+"""
 
 from typing import Optional
 
@@ -25,15 +27,18 @@ assert rec.area() == 100
 
 # Test Valores por defecto
 rec = Rectangulo()
+assert rec.base is None
+assert rec.altura is None
+assert rec.area() == 0
+
 rec.base = 10
 rec.altura = 10
 assert rec.base == 10
 assert rec.altura == 10
 assert rec.area() == 100
 
-# Test variables de clase
+# Test Instanciación sin variable
 assert Rectangulo(10, 10).area() == 100
 assert Rectangulo(10, 0).area() == 0
 assert Rectangulo(0, 10).area() == 0
-
 # NO MODIFICAR - FIN

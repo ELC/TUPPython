@@ -1,25 +1,73 @@
-# Escribir una clase Estudiante, que herede de Persona, y que agregue las siguientes condiciones:
+"""Herencia"""
 
-# Atributos:
-# - nombre de la carrera.
-# - año de ingreso a la misma.
-# - cantidad de materias de la carrera.
-# - cantidad de materias aprobadas.
 
-# Métodos:
-# - avance(): indica que porcentaje de la carrera tiene aprobada.
-# - edad_ingreso(): indica que edad tenia al ingresar a la carrera (basándose en el año actual).
+# NO MODIFICAR - INICIO
+class Animal:
+    def __init__(self, edad: int = 0):
+        self.edad = edad
 
-from ejercicio_03 import Persona
+    def descripcion(self) -> str:
+        return f"Tengo {self.edad} años"
 
-class Estudiante(Persona):
 
-    def __init__(self, carrera, anio, cantidad_materias, cantidad_aprobadas):
-        pass
+# NO MODIFICAR - FIN
 
-    def avance(self):
-        pass
 
-    # implementar usando modulo datetime
-    def edad_ingreso(self):
-        pass
+class Perro(Animal):
+    """Escribir un constructor que añada una variable de instancia llamada raza,
+    de tipo string y que tenga como valor por defecto "". Adicionalmente se debe
+    sobrecargar el método descripción para que devuelva:
+    "Soy un perro y" + método descripción del padre
+    """
+
+    def __init__(self, raza: str = "", *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.raza = raza
+
+    def descripcion(self) -> str:
+        return f"Soy un perro y {super().descripcion().lower()}"
+
+
+# NO MODIFICAR - INICIO
+terrier = Perro(edad=8, raza="Yorkshire Terrier")
+cachorro = Perro(edad=1)
+dogo = Perro(raza="Dogo")
+
+assert Animal(10).descripcion() == "Tengo 10 años"
+assert terrier.descripcion() == "Soy un perro y tengo 8 años"
+assert dogo.descripcion() == "Soy un perro y tengo 0 años"
+assert cachorro.descripcion() == "Soy un perro y tengo 1 años"
+# NO MODIFICAR - FIN
+
+
+"""Re-Escribir utilizando DataClasses"""
+
+from dataclasses import dataclass
+
+
+@dataclass
+class Animal:
+    edad: int = 0
+
+    def descripcion(self) -> str:
+        return f"Tengo {self.edad} años"
+
+
+@dataclass
+class Perro(Animal):
+    raza: str = ""
+
+    def descripcion(self) -> str:
+        return f"Soy un perro y {super().descripcion().lower()}"
+
+
+# NO MODIFICAR - INICIO
+terrier = Perro(edad=8, raza="Yorkshire Terrier")
+cachorro = Perro(edad=1)
+dogo = Perro(raza="Dogo")
+
+assert Animal(10).descripcion() == "Tengo 10 años"
+assert terrier.descripcion() == "Soy un perro y tengo 8 años"
+assert dogo.descripcion() == "Soy un perro y tengo 0 años"
+assert cachorro.descripcion() == "Soy un perro y tengo 1 años"
+# NO MODIFICAR - FIN

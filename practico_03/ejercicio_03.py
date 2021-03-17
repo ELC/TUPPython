@@ -1,27 +1,23 @@
-# Implementar la clase Persona que cumpla las siguientes condiciones:
-
-# Atributos:
-# - nombre.
-# - edad.
-# - sexo (H hombre, M mujer).
-# - peso.
-# - altura.
-
-# Métodos:
-# - es_mayor_edad(): indica si es mayor de edad, devuelve un booleano.
-
+"""Dataclasses"""
 
 from dataclasses import dataclass
 
 
 class Persona:
-    def __init__(self,
-                 nombre: str,
-                 edad: int,
-                 sexo: str,
-                 peso: float,
-                 altura: float
-                 ) -> None:
+    """Clase con los siguientes miembros:
+
+    Atributos de instancia:
+    - nombre: str
+    - edad: int
+    - sexo (H hombre, M mujer): str
+    - peso: float
+    - altura: float
+
+    Métodos:
+    - es_mayor_edad(): indica si es mayor de edad, devuelve un booleano.
+    """
+
+    def __init__(self, nombre: str, edad: int, sexo: str, peso: float, altura: float) -> None:
         self.nombre = nombre
         self.edad = edad
         self.sexo = sexo
@@ -33,16 +29,18 @@ class Persona:
 
 
 # NO MODIFICAR - INICIO
-assert Persona("Juan", 18, "H", 85, 175.9).es_mayor_edad() == True
-assert Persona("Julia", 16, "M", 65, 162.4).es_mayor_edad() == False
+assert Persona("Juan", 18, "H", 85, 175.9).es_mayor_edad()
+assert not Persona("Julia", 16, "M", 65, 162.4).es_mayor_edad()
 # NO MODIFICAR - FIN
 
 
-# Re-Escribir utiliznaod DataClasses
+###############################################################################
 
 
 @dataclass
 class Persona:
+    """Re-Escribir utilizando DataClasses"""
+
     nombre: str
     edad: int
     sexo: str
@@ -54,6 +52,6 @@ class Persona:
 
 
 # NO MODIFICAR - INICIO
-assert Persona("Juan", 18, "H", 85, 175.9).es_mayor_edad() == True
-assert Persona("Julia", 16, "M", 65, 162.4).es_mayor_edad() == False
+assert Persona("Juan", 18, "H", 85, 175.9).es_mayor_edad()
+assert not Persona("Julia", 16, "M", 65, 162.4).es_mayor_edad()
 # NO MODIFICAR - FIN

@@ -1,92 +1,69 @@
-from __future__ import annotations
+"""Deepcopy y Listas de Objetos"""
+
+from dataclasses import dataclass
 from typing import List
 
-# Agregar los métodos que sean necesarios para que los test funcionen.
-# Hint: los métodos necesarios son todos magic methods
-# Referencia: https://docs.python.org/3/reference/datamodel.html#basic-customization
 
 # NO MODIFICAR - INICIO
-class Article:
-    def __init__(self, name: str) -> None:
-        self.name = name
+@dataclass
+class Articulo:
+    _nombre: str
+    _precio: float
 
-    # NO MODIFICAR - FIN
+    @property
+    def nombre(self) -> str:
+        return self._nombre.capitalize()
 
-    def __eq__(self, other: Article) -> bool:
-        return self.name == other.name
+    @nombre.setter
+    def nombre(self, value: str) -> None:
+        self._nombre = value
 
-    def __hash__(self) -> int:
-        return hash(self.name)
+    @property
+    def precio(self) -> float:
+        return round(self._precio, 2)
 
-    def __str__(self) -> str:
-        return self.name
-
-    def __repr__(self) -> str:
-        return f"Article('{self.name}')"
+    @precio.setter
+    def precio(self, value: float) -> None:
+        self._precio = value
 
 
-# NO MODIFICAR - INICIO
-class ShoppingCart:
-    def __init__(self, articles: List[Article] = None) -> None:
-        if articles is None:
-            self.articles = []
-        else:
-            self.articles = articles
+# NO MODIFICAR - FIN
 
-    def add(self, article: Article) -> ShoppingCart:
-        self.articles.append(article)
-        return self
 
-    def remove(self, remove_article: Article) -> ShoppingCart:
-        new_articles = []
+# MODIFICAR
+from copy import deepcopy
 
-        for article in self.articles:
-            if article != remove_article:
-                new_articles.append(article)
 
-        self.articles = new_articles
+def actualizar_precio(articulos: List[Articulo], porcentaje: float) -> List[Articulo]:
+    """Toma una lista de articulos y un porcentaje, al precio de cada articulo
+    le suma un porcentaje. Devuelve una lista con los precios actualizados.
 
-        return self
-
-    # NO MODIFICAR - FIN
-
-    def __eq__(self, other: ShoppingCart) -> bool:
-        return set(self.articles) == set(other.articles)
-
-    def __str__(self) -> str:
-        return str([str(i) for i in self.articles])
-
-    def __repr__(self) -> str:
-        return f"ShoppingCart({[art for art in self.articles]})"
-
-    def __add__(self, other: ShoppingCart) -> ShoppingCart:
-        return ShoppingCart(self.articles + other.articles)
+    Restricción: NO se debe modificar la clase ni los tests.
+    Hint: Usar deepcopy (https://docs.python.org/3/library/copy.html#copy.deepcopy)
+    """
+    nuevos = []
+    for articulo in deepcopy(articulos):
+        articulo.precio *= 1 + porcentaje_aumento / 100
+        nuevos.append(articulo)
+    return nuevos
 
 
 # NO MODIFICAR - INICIO
+nombres = ["sabana", "parlante", "computadora", "tasa", "botella", "celular"]
+precios = [10.25, 5.258, 350.159, 25.99, 18.759, 215.231]
 
-manzana = Article("Manzana")
-pera = Article("Pera")
-tv = Article("Television")
+articulos = [Articulo(nombre, precio) for nombre, precio in zip(nombres, precios)]
+porcentaje_aumento = 10
 
-# Test de conversión a String
-assert str(ShoppingCart().add(manzana).add(pera)) == "['Manzana', 'Pera']"
+articulos_actualizados = actualizar_precio(articulos, porcentaje_aumento)
+precios_desactualizados = [articulo.precio for articulo in articulos]
+precios_actualizados = [articulo.precio for articulo in articulos_actualizados]
 
-# Test de reproducibilidad
-carrito = ShoppingCart().add(manzana).add(pera)
-assert carrito == eval(repr(carrito))
+# Test Lista vacia
+assert precios_actualizados
 
-# Test de igualdad
-assert ShoppingCart().add(manzana) == ShoppingCart().add(manzana)
-
-# Test de remover objeto
-assert ShoppingCart().add(tv).add(pera).remove(tv) == ShoppingCart().add(pera)
-
-# Test de igualdad con distinto orden
-assert ShoppingCart().add(tv).add(pera) == ShoppingCart().add(pera).add(tv)
-
-# Test de suma
-combinado = ShoppingCart().add(manzana) + ShoppingCart().add(pera)
-assert combinado == ShoppingCart().add(manzana).add(pera)
+# Test de precios
+for precio_viejo, precio_nuevo in zip(precios_desactualizados, precios_actualizados):
+    assert precio_nuevo == round(precio_viejo * (1 + porcentaje_aumento / 100), 2)
 
 # NO MODIFICAR - FIN
