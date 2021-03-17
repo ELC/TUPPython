@@ -11,7 +11,7 @@ numero_03 = "789"
 numero_04 = "132"
 
 # COMPLETAR - INICIO
-suma_de_numeros = int(numero_01) + int(numero_02) + int(numero_03) + int(numero_04) 
+suma_de_numeros = int(numero_01) + int(numero_02) + int(numero_03) + int(numero_04)
 # COMPLETAR - FIN
 
 assert suma_de_numeros == 1500

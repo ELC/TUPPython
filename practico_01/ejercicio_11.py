@@ -49,7 +49,7 @@ assert suma_cubo_pares_sum_list([1, 2, 3, 4, 5, 6]) == 288
 
 
 def suma_cubo_pares_sum_gen(numeros: Iterable[int]) -> int:
-    """ Re-Escribir utilizando expresiones generadoras (debe resolverse en 1 línea)
+    """Re-Escribir utilizando expresiones generadoras (debe resolverse en 1 línea)
     y la función sum.
     Referencia: https://docs.python.org/3/reference/expressions.html#generator-expressions
     """

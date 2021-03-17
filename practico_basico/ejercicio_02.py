@@ -30,7 +30,7 @@ area_cuadrado = pow(lado_cuadrado, 2)
 area_mayor_a_cinco = not area_cuadrado < 5
 # COMPLETAR - FIN
 
-assert area_mayor_a_cinco  
+assert area_mayor_a_cinco
 
 
 """
@@ -45,7 +45,7 @@ numero_2 = 50
 resultado = numero_1 % 7 == 0 and not 50 % 7 == 0
 # COMPLETAR - FIN
 
-assert resultado  
+assert resultado
 
 
 """

@@ -25,9 +25,9 @@ Restricción: Usar directamente los strings y la concatenación automática (no
 usar operadores).
 """
 
-#"¡Mamá "
-#"estoy concatenando "
-#"strings!"
+# "¡Mamá "
+# "estoy concatenando "
+# "strings!"
 
 # COMPLETAR - INICIO
 strings_concatenados = "¡Mamá " "estoy concatenando " "strings!"

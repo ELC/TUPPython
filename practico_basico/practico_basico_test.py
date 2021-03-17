@@ -1,4 +1,3 @@
-
 def test_asserts_ejercicio_01():
     import ejercicio_01
 
