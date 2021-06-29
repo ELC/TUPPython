@@ -38,7 +38,7 @@ assert comparar_nombre_y_edad
 
 """
 Construir una expresión lógica que use TODAS las variables y cuyo resultado sea
-True si la superfice del campo 1 es menor a la del campo 2 y la superficie del 
+True si la superfice del campo 1 es menor a la del campo 2 y la superficie del
 campo 2 es mayor a la del campo 3.
 
 Restricción: Utilizar comparaciones encadenadas - No utilizar and, or ni not.
@@ -57,7 +57,7 @@ assert comparar_superficie
 
 """
 Construir una expresión lógica que use TODAS las variables y cuyo resultado sea
-True si la cantidad de bananas es menor a la mitad de la cantidad de naranjas, 
+True si la cantidad de bananas es menor a la mitad de la cantidad de naranjas,
 la mitad de naranjas es menor a dos veces la cantidad de manzanas y dos veces
 la cantidad de manzanas es menor o igual a la cantidad de peras al cuadrado.
 

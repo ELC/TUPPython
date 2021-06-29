@@ -33,7 +33,7 @@ assert suma_de_numeros_string == "123456789"
 
 
 """
-Convertir los numeros de binario, octal y hexadecimal a enteros y luego 
+Convertir los numeros de binario, octal y hexadecimal a enteros y luego
 multiplicarlos.
 """
 
