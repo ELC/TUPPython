@@ -18,7 +18,11 @@ Cliente = {
 }
 # COMPLETAR - FIN
 
-assert (Cliente["Nombre"] == "Mario Pedernera" and Cliente["DNI"] == 56895632 and Cliente["Domicilio"] == "Los alamos 4509" and Cliente["Compras"] == ["cafetera", "TV 50 pulgadas", "mouse gamer"])
+assert (Cliente["Nombre"] ==
+        "Mario Pedernera" and Cliente["DNI"] ==
+        56895632 and Cliente["Domicilio"] ==
+        "Los alamos 4509" and Cliente["Compras"] ==
+        ["cafetera", "TV 50 pulgadas", "mouse gamer"])
 
 
 """
@@ -36,7 +40,10 @@ Compras = {
 }
 # COMPLETAR - FIN
 
-assert (Compras["Mario Pedernera"] == ["cafetera", "TV 50 pulgads", "mouse gamer"] and Compras["Ezequiel Castello"] == ["ipad", "ipod", "iphone"] and Compras["Pablo Piristrelli"] == ["Reproductor de CD", "Videograbadora"])
+assert (Compras["Mario Pedernera"] ==
+        ["cafetera", "TV 50 pulgads", "mouse gamer"] and Compras["Ezequiel Castello"] ==
+        ["ipad", "ipod", "iphone"] and Compras["Pablo Piristrelli"] ==
+        ["Reproductor de CD", "Videograbadora"])
 
 
 """
