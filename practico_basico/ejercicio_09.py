@@ -22,7 +22,7 @@ assert conjunto_1 == {1, 2, 3}
 
 
 """
-Inicializar un conjunto vacío con los valores "5", "6" y "7" y agregarle los valores de 
+Inicializar un conjunto vacío con los valores "5", "6" y "7" y agregarle los valores de
 las siguiente variables
 
 Restricción: Utilizar el metodo add

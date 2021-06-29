@@ -121,7 +121,7 @@ assert lista_primeros == ["ho", 3.1416, "la"]
 
 
 """
-Armar una lista que contenga los primeros 2 y los últimos 2 elementos de la 
+Armar una lista que contenga los primeros 2 y los últimos 2 elementos de la
 siguiente lista
 
 Restricción: Utilizar el método extend junto al indexado múltiple
@@ -155,7 +155,7 @@ assert lista_concatenada == [0, 1, 2, 3, 5, 6]
 
 
 """
-Concatenar 3 veces la siguiente lisa consigo misma 
+Concatenar 3 veces la siguiente lisa consigo misma
 
 Restricción: Utiliar el operador *
 """
@@ -203,7 +203,7 @@ assert not son_iguales
 
 
 """
-Se cuenta con una lista de elementos booleanos que corresponden a las notas de los exámenes 
+Se cuenta con una lista de elementos booleanos que corresponden a las notas de los exámenes
 cuatrimestrales de un alumno (True si está aprobado y False en caso contrario)
 Determinar si el alumno no tiene examenes aprobados.
 
@@ -220,7 +220,7 @@ assert no_tiene_examenes_aprobados
 
 
 """
-Se cuenta con una lista de elementos booleanos que corresponden a las notas de los exámenes 
+Se cuenta con una lista de elementos booleanos que corresponden a las notas de los exámenes
 cuatrimestrales de un alumno (True si está aprobado y False en caso contrario)
 Determinar si el alumno ha aprobado todos sus exámenes.
 

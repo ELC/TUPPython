@@ -104,7 +104,7 @@ assert suma == 75
 
 
 """
-Desempaquetar el primer, el segundo, el tercer, el cuarto y el quinto elemento de la 
+Desempaquetar el primer, el segundo, el tercer, el cuarto y el quinto elemento de la
 siguiente tupla y luego concatenarlos
 
 Restricción: Utilizar desempaquetado con comodines y f-Strings

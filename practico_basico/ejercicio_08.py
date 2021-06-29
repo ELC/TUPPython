@@ -64,7 +64,7 @@ assert clave1 == 234
 
 
 """
-Dado el siguiente diccionario forzar la obtención de un valor por defecto igual a 5 utilizando 
+Dado el siguiente diccionario forzar la obtención de un valor por defecto igual a 5 utilizando
 el metodo get y almacenarlo en la variable clave5
 
 Restricción: Se debe intentar obtener un valor para la clave inexistente "clave5"
@@ -121,7 +121,7 @@ assert values == [1234, 4567, 8910, 1112]
 
 
 """
-Dado el siguiente diccionario obtener una lista de sus claves y sus valores uno a continuación 
+Dado el siguiente diccionario obtener una lista de sus claves y sus valores uno a continuación
 de otro por medio del metodo items
 """
 
