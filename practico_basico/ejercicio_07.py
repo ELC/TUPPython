@@ -33,13 +33,13 @@ assert lista == ["casa", "perro", "pato", "gato", "tenedor"]
 Desempaquetar la siguiente tupla en las variables a, b y c
 """
 
-tupla = ("primer", 25, [1,2,3])
+tupla = ("primer", 25, [1, 2, 3])
 
 # COMPLETAR - INICIO
 a, b, c = tupla
 # COMPLETAR - FIN
 
-assert a == "primer" and b == 25 and c == [1,2,3]
+assert a == "primer" and b == 25 and c == [1, 2, 3]
 
 
 """
@@ -62,7 +62,7 @@ Desempaquetar la siguiente lista y luego concatenar sus elementos
 Restricción: Utilizar f-Strings.
 """
 
-lista = ["esta", "mañana", "sali","a", "correr"]
+lista = ["esta", "mañana", "sali", "a", "correr"]
 
 # COMPLETAR - INICIO
 a, b, c, d, e = lista
@@ -81,7 +81,7 @@ Restricción: Utilizar desempaquetado con comodines
 tupla = (73, 45, 344, 3434, 2)
 
 # COMPLETAR - INICIO
-primer, *rest= tupla
+primer, *rest = tupla
 # COMPLETAR - FIN
 
 assert primer == 73
@@ -110,7 +110,7 @@ siguiente tupla y luego concatenarlos
 Restricción: Utilizar desempaquetado con comodines y f-Strings
 """
 
-tupla = ("anoche","fui","a","la","fiesta","pero","no","pude","entrar")
+tupla = ("anoche", "fui", "a", "la", "fiesta", "pero", "no", "pude", "entrar")
 
 # COMPLETAR - INICIO
 a, e, i, o, u, *rest = tupla
@@ -118,7 +118,3 @@ string_concatenado = f"{a} {e} {i} {o} {u}"
 # COMPLETAR - FIN
 
 assert string_concatenado == "anoche fui a la fiesta"
-
-
-
-

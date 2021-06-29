@@ -44,7 +44,7 @@ assert variable_03 is True
 Interpretar como booleano la siguente variable y guardar el valor resultante en variable_04
 """
 
-lista_de_compras = "No comprar nada" and ["Pan", "Aceite", "Sal"] 
+lista_de_compras = "No comprar nada" and ["Pan", "Aceite", "Sal"]
 
 # COMPLETAR - INICIO
 variable_04 = bool(lista_de_compras)
@@ -57,7 +57,7 @@ assert variable_04 is True
 Interpretar como booleano la siguente variable y guardar el valor resultante en variable_05
 """
 
-lista_de_ids = 0 and [1236, 5565, 8956, 2534] 
+lista_de_ids = 0 and [1236, 5565, 8956, 2534]
 
 # COMPLETAR - INICIO
 variable_05 = bool(lista_de_ids)

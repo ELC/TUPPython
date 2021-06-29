@@ -135,7 +135,7 @@ lista_primeros_y_ultimos.extend(lista[:2])
 lista_primeros_y_ultimos.extend(lista[-2:])
 # COMPLETAR - FIN
 
-assert lista_primeros_y_ultimos == ["ho", "la","como", "estas?"]
+assert lista_primeros_y_ultimos == ["ho", "la", "como", "estas?"]
 
 
 """
@@ -144,14 +144,14 @@ Concatenar las siguientes 2 listas
 Restricción: Utiliar el operador +
 """
 
-lista_01 = [0,1,2,3]
-lista_02 = [5,6]
+lista_01 = [0, 1, 2, 3]
+lista_02 = [5, 6]
 
 # COMPLETAR - INICIO
 lista_concatenada = lista_01 + lista_02
 # COMPLETAR - FIN
 
-assert lista_concatenada == [0,1,2,3,5,6]
+assert lista_concatenada == [0, 1, 2, 3, 5, 6]
 
 
 """
@@ -160,13 +160,14 @@ Concatenar 3 veces la siguiente lisa consigo misma
 Restricción: Utiliar el operador *
 """
 
-lista_01 = [0,1,0,1,0,1]
+lista_01 = [0, 1, 0, 1, 0, 1]
 
 # COMPLETAR - INICIO
 lista_duplicada = lista_01 * 3
 # COMPLETAR - FIN
 
-assert lista_duplicada == [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1]
+assert lista_duplicada == [0, 1, 0, 1, 0,
+                           1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
 
 
 """
@@ -176,7 +177,7 @@ Restricción: Utiliar el operador in
 """
 
 elemento = 1.0
-lista = [0,1,0,1,0,1,0,1,0,1,0,1,1.0,1,0,1,0,1]
+lista = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1.0, 1, 0, 1, 0, 1]
 
 # COMPLETAR - INICIO
 variable_booleana = elemento in lista
@@ -191,8 +192,8 @@ Verificar si las siguientes listas son iguales
 Restricción: Utilizar el operador ==
 """
 
-lista_01 = [1,2,3,4.5,6,7]
-lista_02 = [1,3,2,4,5,6,7]
+lista_01 = [1, 2, 3, 4.5, 6, 7]
+lista_02 = [1, 3, 2, 4, 5, 6, 7]
 
 # COMPLETAR - INICIO
 son_iguales = lista_01 == lista_02
@@ -212,7 +213,7 @@ Restricción: Utilizar el método any
 notas = [False, False, False, False, False, False, False, False, False]
 
 # COMPLETAR - INICIO
-no_tiene_examenes_aprobados= not any(notas)
+no_tiene_examenes_aprobados = not any(notas)
 # COMPLETAR - FIN
 
 assert no_tiene_examenes_aprobados
@@ -226,7 +227,8 @@ Determinar si el alumno ha aprobado todos sus exámenes.
 Restricción: Utilizar el método all
 """
 
-notas = [True, True, False, True, True, True, True, True, True, True, True, True]
+notas = [True, True, False, True, True,
+         True, True, True, True, True, True, True]
 
 # COMPLETAR - INICIO
 tiene_todo_aprobado = all(notas)
