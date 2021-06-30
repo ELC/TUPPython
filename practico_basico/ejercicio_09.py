@@ -39,7 +39,7 @@ conjunto_2.add(domicilio)
 conjunto_2.add(edad)
 # COMPLETAR - FIN
 
-assert conjunto_2 == {'35', 'Esteban', '7', '6', 'Los sauces 3446', '5'}
+assert conjunto_2 == {"35", "Esteban", "7", "6", "Los sauces 3446", "5"}
 
 
 """

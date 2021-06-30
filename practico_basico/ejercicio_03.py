@@ -49,7 +49,9 @@ superficie_de_campo_02 = 851212
 superficie_de_campo_03 = 8512
 
 # COMPLETAR - INICIO
-comparar_superficie = superficie_de_campo_01 < superficie_de_campo_02 > superficie_de_campo_03
+comparar_superficie = (
+    superficie_de_campo_01 < superficie_de_campo_02 > superficie_de_campo_03
+)
 # COMPLETAR - FIN
 
 assert comparar_superficie

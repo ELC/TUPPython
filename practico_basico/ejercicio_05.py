@@ -70,10 +70,16 @@ variable_04 = " años."
 variable_05 = "Ezequiel"
 
 # COMPLETAR - INICIO
-strings_concatenados = "Le debo {0} pesos a un amigo hace {0} años. Se llama {1}".format(variable_02, variable_05)
+strings_concatenados = (
+    "Le debo {0} pesos a un amigo hace {0} años. Se llama {1}".format(
+        variable_02, variable_05
+    )
+)
 # COMPLETAR - FIN
 
-assert strings_concatenados == "Le debo 6 pesos a un amigo hace 6 años. Se llama Ezequiel"
+assert (
+    strings_concatenados == "Le debo 6 pesos a un amigo hace 6 años. Se llama Ezequiel"
+)
 
 
 """
@@ -88,7 +94,9 @@ variable_03 = " pesos que le debía a Ezequiel, me faltan $"
 variable_04 = 4
 
 # COMPLETAR - INICIO
-strings_concatenados = f"Le pagué {variable_02} pesos que le debía a Ezequiel, me faltan ${variable_04}"
+strings_concatenados = (
+    f"Le pagué {variable_02} pesos que le debía a Ezequiel, me faltan ${variable_04}"
+)
 # COMPLETAR - FIN
 
 assert strings_concatenados == "Le pagué 2 pesos que le debía a Ezequiel, me faltan $4"

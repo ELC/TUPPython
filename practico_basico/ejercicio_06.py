@@ -49,8 +49,7 @@ listas_concatenadas_01.extend(lista_b)
 listas_concatenadas_01.extend(lista_c)
 # COMPLETAR - FIN
 
-assert listas_concatenadas_01 == [
-    1, 2, 3, "4", "5", "6", "siete", "ocho", "nueve"]
+assert listas_concatenadas_01 == [1, 2, 3, "4", "5", "6", "siete", "ocho", "nueve"]
 
 
 """
@@ -166,8 +165,7 @@ lista_01 = [0, 1, 0, 1, 0, 1]
 lista_duplicada = lista_01 * 3
 # COMPLETAR - FIN
 
-assert lista_duplicada == [0, 1, 0, 1, 0,
-                           1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+assert lista_duplicada == [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
 
 
 """
@@ -227,8 +225,7 @@ Determinar si el alumno ha aprobado todos sus exámenes.
 Restricción: Utilizar el método all
 """
 
-notas = [True, True, False, True, True,
-         True, True, True, True, True, True, True]
+notas = [True, True, False, True, True, True, True, True, True, True, True, True]
 
 # COMPLETAR - INICIO
 tiene_todo_aprobado = all(notas)

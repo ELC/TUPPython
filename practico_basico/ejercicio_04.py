@@ -42,7 +42,9 @@ numero_octal = "0o1425"
 numero_hexadecimal = "0x6f540"
 
 # COMPLETAR - INICIO
-multiplicacion_de_numeros = int(numero_binario, 2) * int(numero_octal, 8) * int(numero_hexadecimal, 16)
+multiplicacion_de_numeros = (
+    int(numero_binario, 2) * int(numero_octal, 8) * int(numero_hexadecimal, 16)
+)
 # COMPLETAR - FIN
 
 assert multiplicacion_de_numeros == 44397345600000000
